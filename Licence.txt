@@ -1,0 +1,10 @@
+VLC Streamer Licence
+Version 1.0
+
+1) You may use this code only for the purpose of interacting with Hobbyist software's VLC Streamer
+2) For any code you commit to this repository (or send via pull request, or similar method), you grant Hobbyist Software a perpetual royalty-free licence
+3) Hobbyist Software reserves the right to change this licence in the future
+
+e.g. 
+-you can't use this to build a competitor to VLC Streamer
+-Hobbyist Software can do what they like with this code or your contributions in the future.
