@@ -1,0 +1,24 @@
+#!/bin/bash
+
+mkdir ../VLCStreamer-build-deploy
+cd ../VLCStreamer-build-deploy
+qmake  ../VLCStreamer/VLCStreamer.pro
+make clean all
+cd ../VLCStreamer
+
+#mkdir ./deploy_vlc_streamer
+rm ./deploy_vlc_streamer/*
+
+cp ../VLCStreamer-build-deploy/bin/VLCStreamerClient ./deploy_vlc_streamer
+cp README ./deploy_vlc_streamer
+
+#cp VLCStreamerClient.sh ./deploy_vlc_streamer
+#cp /usr/lib/libQtGui.so.4       ./deploy_vlc_streamer
+#cp /usr/lib/libQtNetwork.so.4   ./deploy_vlc_streamer
+#cp /usr/lib/libQtCore.so.4      ./deploy_vlc_streamer
+#cp /usr/lib/libQtDBus.so.4      ./deploy_vlc_streamer
+
+cd ./deploy_vlc_streamer/
+tar cvzf ../VLCStreamer.tar.gz ./*
+cd ..
+

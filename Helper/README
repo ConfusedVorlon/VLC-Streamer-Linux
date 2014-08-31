@@ -1,0 +1,100 @@
+===========================================
+VLCStreamerClient for Linux
+
+Author: Jens Stockhausen
+
+Developed on Kubuntu 10.10 with Qt 4.7
+Works on (K)Ubuntu 10.10 32bit/64bit
+===========================================
+Prerequistes:
+
+You need some libraries and command line tools to get the application running.
+On Linux you rather get these additional tools from your package management
+system (dep on Ubuntu) than distributing them with your application. So please
+find below the steps that you should execute in a bash.
+
+Qt
+  default Qt distribution (should be already on your system)
+  install with:
+    "sudo apt-get install libqt4-core libqt4-gui libqt4-network libqt4-dbus libqt4-xml"
+
+
+Advertising
+  commandline tool avahi-publish-service
+  install with:
+    "sudo apt-get install avahi-utils"
+
+
+Encoding
+  VLC 1.2.x (currently only on git repository and not released)
+  found in a Private Package Archive (PPA) on
+  https://launchpad.net/~videolan/+archive/master-daily.
+  install with:
+    To get the PPA into your /etc/apt/sources.list including the PGP key
+    "sudo apt-get install python-software-properties"
+    "sudo add-apt-repository ppa:videolan/master-daily"
+    "sudo apt-get update"
+    finally install or reinstall vlc
+    "sudo apt-get install vlc" or
+    "sudo apt-get upgrade" if vlc is already installed
+
+   You probably also need some additional codecs for encoding.
+   After adding
+   "deb http://packages.medibuntu.org/ maverick free non-free"
+   to your /etc/apt/sources.list
+   and instaling the PGP key with
+   "wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | sudo apt-key add -"
+   "sudo apt-get install w64codecs non-free-codecs" will install the most common codecs.
+
+    Before you start steaming to your iPhone make sure that vlc can play the file locally.
+
+
+===========================================
+For now the application is using the following folders:
+
+SITE_ROOT    :  ~/.Hobbyist_Software/VLC_Streamer/Root
+...home...   :  ~/Videos
+...drives... :  /media
+
+
+===========================================
+Things not yet implemented:
+
+ - parsing command line for parameters
+
+ - http digest auth for access
+ - information caching of SITE_ROOT folder
+
+ - stop process if target folder get's deleted
+ - check for correct avahi version
+
+===========================================
+Change Log
+
+Version 0.0.1 2011-01-29
+- Initial Prototype
+
+Version 0.0.2 2011-01-30
+- Logging VLC output to movie folder
+- Patch playlist with additional 2 minutes
+- Sending short playlits for the first 4 times
+
+Version 0.1.0 2011-02-04
+- Beta Version
+- no short list for finished movies
+- add number to movie folder if target alread exists in SITE_ROOT
+- logging to ~/.Hobbyist_Software/VLC_Streamer/VLCStreamer.log
+- check for correct vlc version
+
+Version 0.1.1 2011-02-20
+- still beta
+- writing settings to ~/.config/Hobbyist_Software/VLC_Streamer.conf
+- First GUI
+
+Version 0.1.2 2011-05-06
+- Bug #175: add --ignore-config for vlc
+- Correct handling of UTF-8 chars
+
+Version 0.1.3 2011-05-08
+- fix bug in parsing the create url for current version of iPhone app
+
